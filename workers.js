@@ -643,8 +643,7 @@ function makeCORSHeaders(extraHeaders = "Content-Type, Authorization") {
  * @returns {string} HTML 页面内容
  */
 function getHtmlContent() {
-  return `
-<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="zh-Hans">
 
 <head>
@@ -1392,7 +1391,7 @@ function getHtmlContent() {
           if (this.downloadUrl) {
             const link = document.createElement('a');
             link.href = this.downloadUrl;
-            let timeString = (new Date().toLocaleString() + '-').replace(/[\/\:]/g, '-').replace(/\s/g, '_').replace(/[-_](\d)[-_]/g, '-0$1-').slice(0, -1);
+            let timeString = (new Date().toLocaleString() + '-').replace(/[\\/\\:]/g, '-').replace(/\\s/g, '_').replace(/[-_](\\d)[-_]/g, '-0$1-').slice(0, -1);
             link.download = 'tts-audio-' + timeString + '.mp3';
             document.body.appendChild(link);
             link.click();
@@ -1630,6 +1629,5 @@ function getHtmlContent() {
   </script>
 </body>
 
-</html>
-  `;
+</html>`;
 }
